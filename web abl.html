@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adventure Trekking</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #1b4332;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 5px 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #95d5b2;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.5),
+                rgba(0,0,0,0.5)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b");
+            
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* Sections */
+        section {
+            padding: 50px 10%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1b4332;
+        }
+
+        /* Cards */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 280px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        /* Difficulty Panels */
+        .easy {
+            background-color: #d8f3dc;
+            border-left: 8px solid green;
+        }
+
+        .medium {
+            background-color: #fff3bf;
+            border-left: 8px solid orange;
+        }
+
+        .hard {
+            background-color: #ffe0e0;
+            border-left: 8px solid red;
+        }
+
+        .info-panel {
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #1b4332;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .checklist li {
+            margin: 12px;
+        }
+
+        /* Safety */
+        .safety {
+            background-color: #fff3cd;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 8px solid orange;
+        }
+
+        /* Price Cards */
+        .price {
+            background-color: #1b4332;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .price h3 {
+            margin-bottom: 15px;
+        }
+
+        .price h2 {
+            color: #95d5b2;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #52b788;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background-color: #40916c;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #081c15;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#routes">Routes</a></li>
+            <li><a href="#difficulty">Difficulty</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#packages">Packages</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>🏔 Adventure Trekking</h1>
+            <p>Explore Mountains • Enjoy Nature • Create Memories</p>
+            <a href="#routes" class="btn">Explore Adventures</a>
+        </div>
+    </section>
+
+    <!-- Trekking Routes -->
+    <section id="routes">
+
+        <h2>Popular Trekking Routes</h2>
+
+        <div class="container">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b">
+
+                <div class="card-content">
+                    <h3>Mountain Trek</h3>
+                    <p>Beautiful mountain views and exciting trails.</p>
+                    <p><b>Duration:</b> 3 Days</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+
+                <div class="card-content">
+                    <h3>Forest Adventure</h3>
+                    <p>Explore forests, rivers and natural wildlife.</p>
+                    <p><b>Duration:</b> 2 Days</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1486911278844-a81c5267e227">
+
+                <div class="card-content">
+                    <h3>Camping Trip</h3>
+                    <p>Enjoy camping under the stars.</p>
+                    <p><b>Duration:</b> 2 Days</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Difficulty Levels -->
+    <section id="difficulty">
+
+        <h2>Difficulty Levels</h2>
+
+        <div class="container">
+
+            <div class="info-panel easy">
+                <h3>🟢 Easy</h3>
+                <p>Suitable for beginners and families.</p>
+            </div>
+
+            <div class="info-panel medium">
+                <h3>🟡 Medium</h3>
+                <p>Requires basic fitness and trekking experience.</p>
+            </div>
+
+            <div class="info-panel hard">
+                <h3>🔴 Hard</h3>
+                <p>For experienced trekkers with good physical fitness.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trip Schedule -->
+    <section id="schedule">
+
+        <h2>Trip Schedule</h2>
+
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Activity</th>
+                <th>Location</th>
+            </tr>
+
+            <tr>
+                <td>Day 1</td>
+                <td>Arrival and Camping</td>
+                <td>Base Camp</td>
+            </tr>
+
+            <tr>
+                <td>Day 2</td>
+                <td>Trekking Adventure</td>
+                <td>Mountain Trail</td>
+            </tr>
+
+            <tr>
+                <td>Day 3</td>
+                <td>Return Journey</td>
+                <td>Base Camp</td>
+            </tr>
+
+        </table>
+    </section>
+
+    <!-- Equipment -->
+    <section id="equipment">
+
+        <h2>🎒 Equipment Checklist</h2>
+
+        <div class="checklist">
+
+            <ul>
+                <li>✔ Trekking Shoes</li>
+                <li>✔ Backpack</li>
+                <li>✔ Water Bottle</li>
+                <li>✔ Tent</li>
+                <li>✔ Flashlight</li>
+                <li>✔ First Aid Kit</li>
+                <li>✔ Warm Clothes</li>
+                <li>✔ Snacks and Food</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- Safety -->
+    <section id="safety">
+
+        <h2>⚠ Safety Guidelines</h2>
+
+        <div class="safety">
+
+            <p>1. Always follow your trek guide.</p>
+            <p>2. Carry enough drinking water.</p>
+            <p>3. Do not leave the trekking group.</p>
+            <p>4. Check weather conditions before travelling.</p>
+            <p>5. Carry a first aid kit.</p>
+            <p>6. Wear suitable trekking shoes.</p>
+
+        </div>
+
+    </section>
+
+    <!-- Packages -->
+    <section id="packages">
+
+        <h2>Adventure Packages</h2>
+
+        <div class="container">
+
+            <div class="price">
+                <h3>Basic</h3>
+                <h2>₹2,999</h2>
+                <p>1 Day Trek</p>
+                <p>Guide Included</p>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+
+            <div class="price">
+                <h3>Standard</h3>
+                <h2>₹5,999</h2>
+                <p>2 Day Trek</p>
+                <p>Camping Included</p>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+
+            <div class="price">
+                <h3>Premium</h3>
+                <h2>₹9,999</h2>
+                <p>3 Day Adventure</p>
+                <p>Camping + Food + Guide</p>
+                <a href="#" class="btn">Book Now</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Adventure Trekking | Explore • Adventure • Enjoy</p>
+    </footer>
+
+</body>
+</html>

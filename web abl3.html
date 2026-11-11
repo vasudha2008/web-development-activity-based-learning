@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Royal Cafe & Restaurant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            background-color: #fffaf0;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #442b1d;
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav li {
+            margin: 8px 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #e9c46a;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 480px;
+            background:
+            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        /* Common Sections */
+        section {
+            padding: 50px 8%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #8b4513;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        /* Cards */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 270px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #b8860b;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Ambience */
+        .ambience {
+            background-color: #f5e6ca;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Testimonials */
+        .review {
+            background: #f5e6ca;
+            width: 280px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .review h3 {
+            color: #8b4513;
+            margin-bottom: 12px;
+        }
+
+        /* Opening Hours */
+        table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #442b1d;
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        /* Reservation Form */
+        .reservation {
+            background: #f5e6ca;
+            max-width: 600px;
+            padding: 30px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .reservation input,
+        .reservation select,
+        .reservation textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn {
+            background: #8b4513;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 12px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #b8860b;
+        }
+
+        /* Location */
+        .location {
+            background: #f5e6ca;
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #442b1d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 35px 5%;
+            }
+
+            .card, .review {
+                width: 100%;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#chefs">Chefs</a></li>
+            <li><a href="#ambience">Ambience</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#hours">Opening Hours</a></li>
+            <li><a href="#reservation">Reservation</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+        <div>
+            <h1>🍽 Royal Cafe & Restaurant</h1>
+            <p>Delicious Food | Beautiful Moments | Great Taste</p>
+            <a href="#menu" class="btn">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu">
+
+        <h2>Our Special Menu</h2>
+
+        <div class="container">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+                <div class="content">
+                    <h3>Pizza</h3>
+                    <p>Delicious cheese and vegetable pizza.</p>
+                    <p class="price">₹249</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+                <div class="content">
+                    <h3>Burger</h3>
+                    <p>Fresh and tasty vegetable burger.</p>
+                    <p class="price">₹149</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+                <div class="content">
+                    <h3>Healthy Salad</h3>
+                    <p>Fresh vegetables and healthy ingredients.</p>
+                    <p class="price">₹179</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5">
+                <div class="content">
+                    <h3>Pasta</h3>
+                    <p>Creamy and delicious Italian pasta.</p>
+                    <p class="price">₹199</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Chefs -->
+    <section id="chefs">
+
+        <h2>Meet Our Chefs</h2>
+
+        <div class="container">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c">
+                <div class="content">
+                    <h3>Chef Arjun</h3>
+                    <p>Head Chef</p>
+                    <p>10 Years Experience</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1583394293214-28ded15ee548">
+                <div class="content">
+                    <h3>Chef Priya</h3>
+                    <p>Pastry Chef</p>
+                    <p>7 Years Experience</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Ambience -->
+    <section class="ambience" id="ambience">
+
+        <h2>Restaurant Ambience</h2>
+
+        <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0">
+
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de">
+
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b">
+
+        </div>
+
+    </section>
+
+    <!-- Testimonials -->
+    <section id="reviews">
+
+        <h2>Customer Testimonials</h2>
+
+        <div class="container">
+
+            <div class="review">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>"Amazing food and excellent service. I loved the atmosphere!"</p>
+                <h3>- Rahul</h3>
+            </div>
+
+            <div class="review">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>"Beautiful restaurant with delicious food. Great experience!"</p>
+                <h3>- Priya</h3>
+            </div>
+
+            <div class="review">
+                <h3>⭐⭐⭐⭐⭐</h3>
+                <p>"Friendly staff and wonderful ambience. Highly recommended!"</p>
+                <h3>- Anjali</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Opening Hours -->
+    <section id="hours">
+
+        <h2>Opening Hours</h2>
+
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Opening Time</th>
+                <th>Closing Time</th>
+            </tr>
+
+            <tr>
+                <td>Monday - Friday</td>
+                <td>10:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>Saturday</td>
+                <td>9:00 AM</td>
+                <td>11:00 PM</td>
+            </tr>
+
+            <tr>
+                <td>Sunday</td>
+                <td>9:00 AM</td>
+                <td>10:00 PM</td>
+            </tr>
+        </table>
+
+    </section>
+
+    <!-- Reservation Form -->
+    <section id="reservation">
+
+        <h2>Book Your Table</h2>
+
+        <div class="reservation">
+
+            <form onsubmit="alert('Your reservation request has been submitted!'); return false;">
+
+                <label>Full Name</label>
+                <input type="text" placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Phone Number</label>
+                <input type="tel" placeholder="Enter phone number" required>
+
+                <label>Reservation Date</label>
+                <input type="date" required>
+
+                <label>Reservation Time</label>
+                <input type="time" required>
+
+                <label>Number of Guests</label>
+                <select required>
+                    <option value="">Select Guests</option>
+                    <option>1 Person</option>
+                    <option>2 People</option>
+                    <option>3 People</option>
+                    <option>4 People</option>
+                    <option>5 or More</option>
+                </select>
+
+                <label>Special Requests</label>
+                <textarea placeholder="Enter your requests"></textarea>
+
+                <button type="submit" class="btn">
+                    Reserve Table
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- Location -->
+    <section id="location">
+
+        <h2>Find Our Restaurant</h2>
+
+        <div class="location">
+            <h3>📍 Royal Cafe & Restaurant</h3>
+            <p>MG Road, Vijayawada, Andhra Pradesh, India</p>
+            <p>Email: royalcafe@gmail.com</p>
+            <p>Phone: +91 9876543210</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Royal Cafe & Restaurant</h3>
+        <p>Good Food, Good Mood!</p>
+        <p>© 2026 Royal Cafe. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
